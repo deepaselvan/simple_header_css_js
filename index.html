@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Column Layout Methods</title>
+  <style>
+    p {
+      padding: 0;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .container {
+      padding: 10px;
+      background-color: gold;
+      display: flex;
+      gap: 10px;
+    }
+
+    .menu{
+      width: 40px;
+    }
+
+    .menu{
+      margin-left: auto;
+      margin-top: -35px;
+    }
+
+    @media (max-width: 680px) {
+      .container{
+        flex-direction: column;
+      }
+
+      li{
+        display: none;
+      }
+
+      .menu{
+        display: block;
+      }
+    }
+
+    @media (min-width: 680px) {
+
+      .menu{
+        display: none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <p>Page Layout Methods</p>
+    
+    <li><a href="./html-table.html">HTML Table</a></li>
+    <li><a href="./inline-block.html">Inline-Block</a></li>
+    <li><a href="./absolute-position.html">Absolute Positioning</a></li>
+    <li><a href="./float.html">Float</a></li>
+    <li><a href="./flex.html">Flexbox</a></li>
+  
+    <img onclick="displayMenu();" class="menu" id="menu" src="./menu.png" alt="">
+
+  </div>
+
+  <script>
+    function displayMenu() {
+      var menu_items = document.querySelectorAll('li');
+      var menu = document.getElementById('menu');
+
+      if (!(menu.hasAttribute("data-status"))){
+        menu_items.forEach(menu_item => {
+        menu_item.style.display = 'block';
+
+        menu.setAttribute('data-status', 'true');
+
+      });
+    }
+      
+
+      else{
+        menu_items.forEach(menu_item => {
+        menu_item.style.display = 'none';
+
+        menu.removeAttribute('data-status');
+
+      });
+      }
+      
+
+      
+    }
+  </script>
+</body>
+
+</html>
